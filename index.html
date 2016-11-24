@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>videotag audio file play</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <video id="v"></video>
+        <script>
+            fetch('sample.mp3').then(res => {
+                var url = URL.createObjectURL(res.blob());
+                v.onloadedmetadata = function() {
+                    console.log(v.videoWidth, v.videoHeight);
+                    v.play();
+                }
+                v.src = url;
+            });
+        </script>
+    </body>
+</html>

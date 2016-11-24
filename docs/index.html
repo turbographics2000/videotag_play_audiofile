@@ -8,8 +8,8 @@
     <body>
         <video id="v"></video>
         <script>
-            fetch('sample.mp3').then(res => {
-                var url = URL.createObjectURL(res.blob());
+            fetch('sample.mp3').then(res => res.blob()).then(blob => {
+                var url = URL.createObjectURL(blob);
                 v.onloadedmetadata = function() {
                     console.log(v.videoWidth, v.videoHeight);
                     v.play();
